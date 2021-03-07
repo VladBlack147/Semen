@@ -34,7 +34,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").html("Гра закінчена, спочатку?");
+    $("#level-title").html("Гру закінчено, спочатку?");
     startOver();
   }
 }
