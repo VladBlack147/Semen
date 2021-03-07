@@ -37,6 +37,7 @@ body {
 }
 
 .game-over {
+  background-image:none;
   background-color: rgb(250, 71, 48);
   opacity: 0.8;
 }
