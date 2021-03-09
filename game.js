@@ -1,10 +1,10 @@
-var buttonColours = ["red", "blue", "green", "yellow"];
+ var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
 var score = 0;
-
+var didGameEnd = true;
 
 $(".btn").click(function () {
 
@@ -20,10 +20,14 @@ $(".btn").click(function () {
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-    console.log("success");
+    console.log("Молодец Семен!");
     if (gamePattern.length === userClickedPattern.length) {
       setTimeout(function () {
-        nextSequence();
+
+        if (didGameEnd == false) {
+          nextSequence();
+        }
+
       }, 1000);
     }
   } else {
@@ -34,7 +38,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").html("Гру закінчено, спочатку?");
+    $("#level-title").html("Гра закінчена, спочатку?");
     startOver();
   }
 }
@@ -43,13 +47,21 @@ function startOver() {
   started = false;
   level = 0;
   gamePattern = [];
-
 }
 
 $(".best").html(score);
 
 
-$(document).keydown(function () {
+// $(document).keydown(function () {
+//   if (!started) {
+//     $("#level-title").html("Уровень " + level);
+//     nextSequence();
+//     started = true;
+//   }
+// });
+
+
+$(document).on('mousedown touchstart', function () {
   if (!started) {
     $("#level-title").html("Уровень " + level);
     nextSequence();
@@ -59,9 +71,8 @@ $(document).keydown(function () {
 
 
 
-
 function nextSequence() {
-
+  didGameEnd = false;
   userClickedPattern = [];
   level++;
   $("#level-title").html("Рівень " + level);
@@ -96,5 +107,4 @@ function animatePress(currentColour) {
   setTimeout(function () {
     $("#" + currentColour).removeClass("pressed");
   }, 100);
-
 }
