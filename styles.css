@@ -2,7 +2,10 @@ body {
   text-align: center;
   background-color: #252525;
   background-image: url("https://imageresizer.static9.net.au/s5RjEptC2UnDpQ2ZUlvtRrqO1Ms=/0x0/https%3A%2F%2Fprod.static9.net.au%2Ffs%2F6271b3f0-1361-4bce-8588-e2029a238433");
-  background-size:auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .score {
