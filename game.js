@@ -1,10 +1,9 @@
- var buttonColours = ["red", "blue", "green", "yellow"];
+var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
 var score = 0;
-var didGameEnd = true;
 
 $(".btn").click(function () {
 
@@ -23,11 +22,7 @@ function checkAnswer(currentLevel) {
     console.log("Молодец Семен!");
     if (gamePattern.length === userClickedPattern.length) {
       setTimeout(function () {
-
-        if (didGameEnd == false) {
-          nextSequence();
-        }
-
+        nextSequence();
       }, 1000);
     }
   } else {
@@ -72,7 +67,6 @@ $(document).on('mousedown touchstart', function () {
 
 
 function nextSequence() {
-  didGameEnd = false;
   userClickedPattern = [];
   level++;
   $("#level-title").html("Рівень " + level);
