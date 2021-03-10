@@ -5,15 +5,23 @@ var level = 0;
 var started = false;
 var score = 0;
 
-$(".btn").click(function () {
+// $(".btn").click(function () {
 
+//   var userChosenColour = $(this).attr("id");
+//   $(".btn").navigator.vibrate(200);
+//   userClickedPattern.push(userChosenColour);
+//   animatePress(userChosenColour);
+//   playSound(userChosenColour);
+//   checkAnswer(userClickedPattern.length - 1);
+// });
+
+$(".btn").on('mousedown touchstart', function () {
   var userChosenColour = $(this).attr("id");
-
   userClickedPattern.push(userChosenColour);
-
   animatePress(userChosenColour);
   playSound(userChosenColour);
   checkAnswer(userClickedPattern.length - 1);
+  $(".btn").navigator.vibrate(200);
 });
 
 
@@ -54,6 +62,7 @@ $(".best").html(score);
 //     started = true;
 //   }
 // });
+
 
 
 $(document).on('mousedown touchstart', function () {
